@@ -5,7 +5,7 @@ A simple flake for gyro things on NixOS.
 - [JoyShockMapper-linux](https://github.com/CoderMaximus/JoyShockMapper-linux)
 - [usb_oc-dkms](https://github.com/p0358/usb_oc-dkms)
 
-> **Note:** I'm not a developer! If you see something that looks messy or wanna optimize my code please open a PR or let me know. PRs are very much welcome from the gyro community and tool developers.
+> **Note:** I'm not a developer! If you see something that looks messy or wanna optimize my code please open a PR or let me know. PRs and issue reports are very much welcome from the gyro community and tool developers.
 
 ## How to use it
 1. Add this to your `inputs` and add the module.
