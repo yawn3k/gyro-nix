@@ -1,0 +1,61 @@
+{
+  "nodes": {
+    "jsm-linux-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1777393808,
+        "narHash": "sha256-ai4Z3xuoUv0mwjYJpNrod7OH2mReR8lIkyNk/+Eaayk=",
+        "owner": "CoderMaximus",
+        "repo": "JoyShockMapper-linux",
+        "rev": "8802d24369e908e7f9457fca203fd525bc4fec60",
+        "type": "github"
+      },
+      "original": {
+        "owner": "CoderMaximus",
+        "repo": "JoyShockMapper-linux",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1777578337,
+        "narHash": "sha256-Ad49moKWeXtKBJNy2ebiTQUEgdLyvGmTeykAQ9xM+Z4=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "15f4ee454b1dce334612fa6843b3e05cf546efab",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "jsm-linux-src": "jsm-linux-src",
+        "nixpkgs": "nixpkgs",
+        "usb-oc-src": "usb-oc-src"
+      }
+    },
+    "usb-oc-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1773057545,
+        "narHash": "sha256-TrFvZfa55+ZoxIdnphCqz1CcX1OYKCCMWeQ0wC/Nvas=",
+        "owner": "p0358",
+        "repo": "usb_oc-dkms",
+        "rev": "8f0bc17820387aa81567595d426f9bfeae891bde",
+        "type": "github"
+      },
+      "original": {
+        "owner": "p0358",
+        "repo": "usb_oc-dkms",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
