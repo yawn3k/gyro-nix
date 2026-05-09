@@ -43,7 +43,11 @@ A simple flake for gyro things on NixOS.
 	# IMPORTANT add your user to the `uinput` group for joyshockmapper to work.
 	users.users.yourname.extraGroups = [ "uinput" ]; 
 
-	boot.usb-oc.enable = true; # Enables USB OC kernel module
+	boot.usb-oc = {
+		enable = true; # Enables USB OC kernel module
+		device = "054c:0ce6"; # Device ID to overclock
+		bInterval = 4;
+	};
 }
 ```
 
