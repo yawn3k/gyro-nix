@@ -6,6 +6,14 @@
 			default = false;
 			description = "Enable the usb_oc kernel module.";
 		};
+		device = lib.mkOption {
+			type = lib.types.str;
+			description = "The USB device ID (vendor:product) to overclock.";
+		};
+		bInterval = lib.mkOption {
+			type = lib.types.int;
+			description = "The interrupt interval override value.";
+		};
 	};
 
 	config = lib.mkIf config.boot.usb-oc.enable {
@@ -13,7 +21,7 @@
 		boot.kernelModules = [ "usb_oc" ];
 
 		services.udev.extraRules = ''
-			ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="054c", ATTR{idProduct}=="0ce6", RUN+="${pkgs.runtimeShell} -c 'echo -n 054c:0ce6:4 > /sys/module/usb_oc/parameters/interrupt_interval_override'"
+			ACTION=="add", SUBSYSTEM=="usb", RUN+="${pkgs.runtimeShell} -c 'echo -n ${config.boot.usb-oc.device}:${toString config.boot.usb-oc.bInterval} > /sys/module/usb_oc/parameters/interrupt_interval_override'"
 		'';
 	};
 }
