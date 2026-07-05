@@ -9,6 +9,10 @@
 			url = "github:p0358/usb_oc-dkms";
 			flake = false;
 		};
+		moonglide-src = {
+			url = "github:yawn3k/moonglide";
+			flake = false;
+		};
 	};
 
 	outputs = { self, nixpkgs, ... }@inputs:
@@ -19,16 +23,22 @@
 	{
 		packages = forAllSystems (system:
 			let
-				pkgs = nixpkgs.legacyPackages.${system};
+				pkgs = import nixpkgs {
+					inherit system;
+					overlays = [ self.overlays.default ];
+				};
 			in
 			{
-				default = pkgs.callPackage ./packages/jsm-linux/package.nix { src = inputs.jsm-linux-src; };
-				joyshockmapper-linux = self.packages.${system}.default;
+				default = pkgs.joyshockmapper-linux;
+				joyshockmapper-linux = pkgs.joyshockmapper-linux;
+				moonglide = pkgs.moonglide; 
 			}
 		);
 
 		overlays.default = final: prev: {
 			joyshockmapper-linux = final.callPackage ./packages/jsm-linux/package.nix { src = inputs.jsm-linux-src; };
+			moonglide = final.callPackage ./packages/moonglide.nix { src = inputs.moonglide-src; };
+
 			usb-oc-src = inputs.usb-oc-src;
 		};
 
