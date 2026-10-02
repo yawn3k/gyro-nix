@@ -47,6 +47,8 @@
 			imports = [
 				./jsm.nix
 				./usb-oc.nix
+				./moonglide.nix
+				./uinput.nix
 			];
 			nixpkgs.overlays = [ self.overlays.default ];
 		};
